@@ -4,6 +4,43 @@
 
 ---
 
+## 📦 下载安装
+
+### 直接下载（推荐）
+
+前往 [Releases](https://github.com/spy007111/Navidrome-Player-For-Macmini/releases/latest) 下载：
+
+| 文件 | 说明 |
+|---|---|
+| `AppleMusicPlayer-v1.0.0-macOS-universal.zip` | 通用版，Apple 芯片与 Intel Mac 均可运行 |
+
+**系统要求**：macOS 14.0 (Sonoma) 或更高版本。
+
+**安装步骤**
+
+1. 下载并解压 zip，得到 `AppleMusicPlayer.app`
+2. 拖入「应用程序」文件夹
+3. 首次打开请**右键点击 App → 选择「打开」→ 在弹窗中再点「打开」**
+
+> 本 App 使用 ad-hoc 签名，未经过 Apple 公证（公证需付费开发者账号）。首次启动被 Gatekeeper 拦截属于预期行为。若右键打开仍被阻止，可在终端执行：
+>
+> ```bash
+> xattr -dr com.apple.quarantine /Applications/AppleMusicPlayer.app
+> ```
+
+### 从源码构建
+
+```bash
+git clone https://github.com/spy007111/Navidrome-Player-For-Macmini.git
+cd Navidrome-Player-For-Macmini
+./build_app.sh
+open AppleMusicPlayer.app
+```
+
+构建脚本会编译 Universal 二进制（arm64 + x86_64），并自动打包与本地签名。
+
+---
+
 ## ✨ 核心特性
 
 ### 1. 纯正 Apple Music 原生界面体验
@@ -47,14 +84,8 @@
 
 ## 🚀 快速启动
 
-在终端中进入项目目录运行即可直接打开 App：
+构建完成后，也可用启动脚本直接打开 App：
 
-```bash
-cd /Users/lgs/.gemini/antigravity/scratch/AppleMusicPlayer
-open AppleMusicPlayer.app
-```
-
-或者使用启动脚本：
 ```bash
 ./run.sh
 ```

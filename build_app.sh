@@ -4,8 +4,8 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$DIR"
 
-echo "🔨 正在编译 Release 版本..."
-swift build -c release --disable-sandbox
+echo "🔨 正在编译 Release 版本（Universal: arm64 + x86_64）..."
+swift build -c release --disable-sandbox --arch arm64 --arch x86_64
 
 APP_DIR="$DIR/AppleMusicPlayer.app"
 rm -rf "$APP_DIR"
